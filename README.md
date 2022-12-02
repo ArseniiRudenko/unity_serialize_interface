@@ -1,5 +1,5 @@
 # unity serialize interface
-Small adhoc class allowing to use interfaces as types and select implementation from ui.
+Small adhoc class allowing to use interfaces as fileds in Unity and select implementation from ui.
 
 ## How to use
 
