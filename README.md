@@ -19,5 +19,8 @@ I've provided some examples that you can try this on, just copy Scripts folder i
 
 As you can see interfaces can also be nested within implementations of other interfaces.
 
+## Contributions.
+
+Generated ui layout is kinda meh, so if you want to improve it - be my guest. 
 
 
