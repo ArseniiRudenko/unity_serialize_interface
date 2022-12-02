@@ -1,12 +1,12 @@
 # unity serializable interface drawer
-Drawer class that allows to use interfaces as monobehaviour fileds in Unity and select implementation from inspector ui.
+Drawer class that allows to use interfaces as monobehaviour fields in Unity and select implementation from inspector ui.
 
 ## How to use
 
 To use your custom ```ISomeInterface``` add ```[CustomPropertyDrawer(typeof(ISomeInterface), true)]``` to the InterfaceWithSerializableContentDrawer.cs
 and declare your interface as ```[SerializeReference] private ISomeInterface someName```. Make sure that all implementations of your interface are ```[Serializable]```
 
-I've provided some examples that you can try this on, just copy Scripts folder into your project Assets folder, and you will have MbExample monobehavior that you can attach to something. It will have 3 fields that are all interfaces with multiple implementations that you can select from ui.
+Repo contains some examples that you can try this on, just copy Scripts folder into your project Assets folder, and you will have MbExample monobehavior that you can attach to something. It will have 3 fields that are all interfaces with multiple implementations that you can select from ui.
 
 ## Drawer will generate dropdown with available implementations for your interface.
 
