@@ -1,4 +1,4 @@
-# unity serializable interface fields
+# unity serializable interface drawer
 Drawer class that allows to use interfaces as monobehaviour fileds in Unity and select implementation from inspector ui.
 
 ## How to use
