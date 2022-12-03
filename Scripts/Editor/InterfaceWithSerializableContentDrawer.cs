@@ -3,15 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Examples;
 using UnityEditor;
 using UnityEngine;
 
 namespace EditorExtensions
 {
-    //previous version of this code used generic class for drawer and inherited from it with type matching type of property.
-    //but for some reason(type erasure or something, idk?) generic type of the drawer would mismatch the type of property it had been called on
-    //so now I'm using single drawer and reflection to find the type that we are dealing with instead
     
     /*
      * use [SerializeReference,SelectableImpl] on filed definition to use the drawer, like this:
