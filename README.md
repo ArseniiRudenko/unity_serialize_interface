@@ -5,8 +5,8 @@ Drawer class that allows to use interfaces as monobehaviour fields in Unity and 
 
 Just copy Scripts folder into your project Assets folder.
 
-To use your custom ```ISomeInterface``` add ```[CustomPropertyDrawer(typeof(ISomeInterface), true)]``` to the InterfaceWithSerializableContentDrawer.cs
-and declare your interface as ```[SerializeReference] private ISomeInterface someName```. Make sure that all implementations of your interface are ```[Serializable]```
+To use this drawer on your custom ```ISomeInterface``` declare your interface as ```[SerializeReference,SelectableImpl]  private ISomeInterface someName```.
+Only non-generic non-abstract implementations of your interface that are ```[Serializable]``` will be avalable for selection.
 
 Repo contains some examples that you can try, once you imported the scripts you will have MbExample monobehavior that you can attach to something. It will have 3 fields that are all interfaces with multiple implementations that you can select from ui.
 

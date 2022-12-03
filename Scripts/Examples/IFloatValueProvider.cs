@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Attributes;
 
 
 namespace Examples
@@ -13,7 +14,7 @@ namespace Examples
     [Serializable]
     public class ClampedFloatValueSource : IFloatValueProvider
     {
-        [SerializeReference] private IFloatValueProvider source;
+        [SerializeReference,SelectableImpl] private IFloatValueProvider source;
         [SerializeField] private float  lower,upper;
         
         public float GetValue()
@@ -27,7 +28,7 @@ namespace Examples
     [Serializable]
     public class AngleFloatValueSource : IFloatValueProvider
     {
-        [SerializeReference]
+        [SerializeReference,SelectableImpl]
         IVectorValueProvider source1,source2;
         
         
@@ -41,7 +42,7 @@ namespace Examples
     [Serializable]
     public class MagnitudeFloatValueSource : IFloatValueProvider
     {
-        [SerializeReference]
+        [SerializeReference,SelectableImpl]
         IVectorValueProvider source;
         public float GetValue()
         {

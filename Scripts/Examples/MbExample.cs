@@ -1,15 +1,14 @@
-using System;
 using UnityEngine;
-
+using Attributes;
 
 namespace Examples
 {
 
 	public class MbExample: MonoBehaviour
 	{
-		[SerializeReference] private IFloatValueProvider source1;
-		[SerializeReference] private IVectorValueProvider source2;
-		[SerializeReference] private IBoolValueProvider source3;
+		[SerializeReference,SelectableImpl] private IFloatValueProvider source1;
+		[SerializeReference,SelectableImpl] private IVectorValueProvider source2;
+		[SerializeReference,SelectableImpl] private IBoolValueProvider source3;
 		
 		private void Update()
 		{

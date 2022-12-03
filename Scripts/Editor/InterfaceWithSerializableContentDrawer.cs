@@ -1,4 +1,4 @@
-
+using Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,17 +14,12 @@ namespace EditorExtensions
     //so now I'm using single drawer and reflection to find the type that we are dealing with instead
     
     /*
-     * list all the interfaces that you want this to work on,
-     * make sure that types that implement the interface are [Serializable]
-     * then use [SerializeReference] in definition, like this:
-     * [SerializeReference] private IFloatValueProvider source;
-     * this property drawer will automatically find all types that implement your interface
+     * use [SerializeReference,SelectableImpl] on filed definition to use the drawer, like this:
+     * [SerializeReference,SelectableImpl] private IFloatValueProvider source;
+     * property drawer will automatically find all types that implement your interface
      * and will provide UI dropdown, where you can select concrete type that you want to use.
-     * These three types below are just an examples.
      */
-    [CustomPropertyDrawer(typeof(IFloatValueProvider), true)]
-    [CustomPropertyDrawer(typeof(IBoolValueProvider), true)]
-    [CustomPropertyDrawer(typeof(IVectorValueProvider), true)]
+    [CustomPropertyDrawer(typeof(SelectableImplAttribute), true)]
     public class InterfaceWithSerializableContentDrawer:PropertyDrawer
     {
      
@@ -90,7 +85,7 @@ namespace EditorExtensions
             return enm.Current;
         }
 
-        //find all types inherited from the baseType (skipping generics, abstracts, interfaces, and type itself)
+        //find all types inherited from the baseType (skipping generics, abstracts, interfaces, and non serializable types)
         private static Type[] GetTypes(Type baseType)
         {
             return AppDomain.CurrentDomain.GetAssemblies()
@@ -99,7 +94,7 @@ namespace EditorExtensions
                     !p.IsAbstract 
                     && !p.IsInterface
                     && !p.ContainsGenericParameters
-                    && p != baseType
+                    && p.IsSerializable
                     && baseType.IsAssignableFrom(p) 
                     ).ToArray();
         }
